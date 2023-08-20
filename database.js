@@ -2,19 +2,22 @@ const Sequelize = require('sequelize');
 
 // Configurações da conexão com o banco de dados
 const sequelize = new Sequelize({
-    dialect: 'mssql',
-    host: '192.168.3.15',
-    port: 1433,
-    database: 'avaliacao',
-    username: 'avaliacao',
-    password: '055369',
-    dialectOptions: {
-        options: {
-            encrypt: true, // Caso esteja usando conexão criptografada
-        },
-    },
+    dialect: 'postgres',
+    host: 'localhost',
+    port: 5432,
+    database: 'lojaGames',
+    username: 'postgres',
+    password: 'murilo0401',
+
 });
 
+sequelize.sync()
+    .then(() => {
+        console.log('Tabelas sincronizadas com sucesso');
+    })
+    .catch((error) => {
+        console.error('Erro ao sincronizar tabelas:', error);
+    });
 
 
 module.exports = sequelize;
