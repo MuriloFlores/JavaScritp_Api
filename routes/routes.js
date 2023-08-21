@@ -1,6 +1,6 @@
 import express from 'express'
 import bodyParser from 'body-parser';
-import { Games } from '../Models/ModelGame.js';
+import { Games } from '../models/modelGame.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
