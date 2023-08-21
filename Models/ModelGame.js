@@ -1,7 +1,7 @@
-const Sequelize = require('sequelize');
-const sequelize = require('./database'); // Substitua pelo caminho correto
+import Sequelize from "sequelize"
+import { database } from "../database/database.js"
 
-const Games = sequelize.define("Games", {
+export const Games = database.define("Games", {
     id: {
         type: Sequelize.INTEGER, // Correção: Use Sequelize.INTEGER
         primaryKey: true,
@@ -26,5 +26,3 @@ const Games = sequelize.define("Games", {
         allowNull: false
     }
 });
-
-module.exports = Games;

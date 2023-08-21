@@ -1,7 +1,6 @@
-const Sequelize = require('sequelize');
+import Sequelize from "sequelize";
 
-// Configurações da conexão com o banco de dados
-const sequelize = new Sequelize({
+export const database = new Sequelize({
     dialect: 'postgres',
     host: 'localhost',
     port: 5432,
@@ -11,13 +10,10 @@ const sequelize = new Sequelize({
 
 });
 
-sequelize.sync()
+database.sync()
     .then(() => {
         console.log('Tabelas sincronizadas com sucesso');
     })
     .catch((error) => {
         console.error('Erro ao sincronizar tabelas:', error);
     });
-
-
-module.exports = sequelize;
