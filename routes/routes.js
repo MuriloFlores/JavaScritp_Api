@@ -8,10 +8,12 @@ const PORT = process.env.PORT || 3000;
 export function HandleRequest() {
     app.use(bodyParser.json());
 
+    // Rota default da aplicação
     app.get('/', (req, res) => {
-        res.send('API para Gestão de Jogos de Tabuleiro');
+        return res.status(200).json({ message: "API para Gestão de Jogos de Tabuleiro" })
     });
 
+    //Rota que será usada para inserção de novos jogos no banco de dados
     app.post('/games/post/:titulo/:descricao/:num_jogadores_recomendados/:faixa_etaria', async (req, res) => {
 
         try {
@@ -33,7 +35,7 @@ export function HandleRequest() {
 
     })
 
-    // Exemplo de rota para buscar todos os jogos
+    //Rota que será usada para buscar todos os jogos do banco de dados
     app.get('/games/get', async (req, res) => {
         try {
             const games = await Games.findAll();
@@ -44,6 +46,7 @@ export function HandleRequest() {
         }
     })
 
+    //Rota que será usada para retornar um jogo especifico, baseado no id que foi passado como parâmetro
     app.get('/games/get/:id', async (req, res) => {
         try {
             const gameID = req.params.id
@@ -60,6 +63,7 @@ export function HandleRequest() {
         }
     })
 
+    //Rota que irá deletar um jogo do banco de dados baseado no id que foi pasado como parâmetro 
     app.delete('/games/delete/:id', async (req, res) => {
         try {
             const gameID = req.params.id
@@ -81,6 +85,7 @@ export function HandleRequest() {
         }
     })
 
+    //Rota que será usada para atualizar uma linha do banco de dados, usando o id passado como parâmetro para encontrar a linha desejada.
     app.put('/games/put/:id/:titulo/:descricao/:num_jogadores_recomendados/:faixa_etaria', async (req, res) => {
         const gameID = req.params.id
         const gameTitulo = req.params.titulo
