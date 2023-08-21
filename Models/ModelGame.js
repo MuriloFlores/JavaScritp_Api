@@ -1,6 +1,7 @@
 import Sequelize from "sequelize"
 import { database } from "../database/database.js"
 
+//Criação da entidade Games, que será utilizada para o ORM abstrair as linhas e colunas para o banco de dados
 export const Games = database.define("Games", {
     id: {
         type: Sequelize.INTEGER, 

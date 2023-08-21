@@ -1,5 +1,6 @@
 import Sequelize from "sequelize";
 
+//Configurações iniciais do Sequelize
 export const database = new Sequelize({
     dialect: 'postgres',
     host: 'localhost',
@@ -10,6 +11,7 @@ export const database = new Sequelize({
 
 });
 
+//Sincronizando o sequelize com as tabelas do banco de dados para possibilitar que o ORM realize as querys
 database.sync()
     .then(() => {
         console.log('Tabelas sincronizadas com sucesso');
