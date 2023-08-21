@@ -3,7 +3,7 @@ import { database } from "../database/database.js"
 
 export const Games = database.define("Games", {
     id: {
-        type: Sequelize.INTEGER, // Correção: Use Sequelize.INTEGER
+        type: Sequelize.INTEGER, 
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
@@ -18,11 +18,11 @@ export const Games = database.define("Games", {
         allowNull: false
     },
     num_jogadores_recomendados: {
-        type: Sequelize.INTEGER, // Correção: Use Sequelize.INTEGER
+        type: Sequelize.INTEGER, 
         allowNull: false
     },
     faixa_etaria: {
-        type: Sequelize.INTEGER, // Correção: Use Sequelize.INTEGER
+        type: Sequelize.INTEGER, 
         allowNull: false
     }
 });
